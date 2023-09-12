@@ -2,3 +2,6 @@
 packages_to_install:
   - tmux
   - neofetch
+  - jq
+  - flameshot
+  - seclists
