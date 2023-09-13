@@ -2,7 +2,7 @@
 [keybindings]
 [profiles]
   [[default]]
-    font = MesloLGS NF Regular 10
+    font = MesloLGS Nerd Font 10
     background_darkness = 0.95
     background_type = transparent
     scrollbar_position = hidden
