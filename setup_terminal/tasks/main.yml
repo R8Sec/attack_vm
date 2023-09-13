@@ -21,6 +21,12 @@
     src: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
     dest: "~/.local/share/fonts"
     
+- name: Ensure ~/.config/terminator Directory Exists
+  file:
+    path: "~/.config/terminator"
+    state: directory
+    mode: 0755
+
 - name: Copy Terminator config file, overwrite if needed
   copy:
     src: "terminator_config"
