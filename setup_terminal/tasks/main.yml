@@ -2,29 +2,30 @@
 - name: Create Temporary Directory
   tempfile:
     state: directory
-    prefix: font_download
-    path: /tmp
   register: temp_dir
 
-- name: Download font zip file
+- name: Download font zip file and save to temporary directory
   get_url:
     url: "{{ font_zip_url }}"
     dest: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
+    mode: 0755 
 
 - name: Ensure ~/.local/share/fonts Directory Exists
   file:
     path: "~/.local/share/fonts"
     state: directory
-    
-- name: Unzip font files
+    mode: 0755
+
+- name: Unzip font files to ~/.local/share/fonts
   unarchive:
     src: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
     dest: "~/.local/share/fonts"
     
-- name: Copy Terminator config file
+- name: Copy Terminator config file, overwrite if needed
   copy:
     src: "terminator_config"
     dest: "~/.config/terminator/config"
+    force: yes
 
 - name: Delete Temporary Directory
   file:
