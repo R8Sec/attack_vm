@@ -27,6 +27,12 @@
     dest: "~/.config/terminator/config"
     force: yes
 
+- name: Copy .zshrc file, overwrite if needed
+  copy:
+    src: "zshrc"
+    dest: "~/.zshrc"
+    force: yes
+
 - name: Delete Temporary Directory
   file:
     path: "{{ temp_dir.path }}"
@@ -35,5 +41,9 @@
 - name: Clone Powerlevel10k repository
   command: "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k"
 
-- name: Edit .zshrc
-  command: "echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc"
+- name: Edit .zshrc file
+  lineinfile:
+    path: "~/.zshrc"
+    line: "source ~/.powerlevel10k/powerlevel10k.zsh-theme"
+    insertafter: EOF
+    state: present
