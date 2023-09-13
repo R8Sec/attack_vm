@@ -1,5 +1,11 @@
 ---
+- name: Update and upgrade packages
+  become: yes
+  apt:
+    update_cache: yes
+    upgrade: yes
 - name: Install packages
+  become: yes
   apt:
     name: "{{ item }}"
     state: present

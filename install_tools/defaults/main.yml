@@ -1,7 +1,6 @@
 ---
 packages_to_install:
+  - zsh
   - tmux
-  - neofetch
   - jq
   - flameshot
-  - seclists

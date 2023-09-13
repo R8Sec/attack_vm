@@ -2,7 +2,6 @@
 - name: "Custom Kali"
   hosts: localhost
   connection: local
-  become: yes
   roles:
-    - install_packages
+    - install_tools
 
