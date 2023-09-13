@@ -1,2 +1,37 @@
 ---
-# tasks file for setup_terminal
+- name: Create Temporary Directory
+  tempfile:
+    state: directory
+    prefix: font_download
+    dir: /tmp
+  register: temp_dir
+
+- name: Download font zip file
+  get_url:
+    url: "{{ font_zip_url }}"
+    dest: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
+
+- name: Ensure ~/.local/share/fonts Directory Exists
+  file:
+    path: "~/.local/share/fonts"
+    state: directory
+    
+- name: Unzip font files
+  unarchive:
+    src: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
+    dest: "~/.local/share/fonts"
+    
+- name: Copy Terminator config file
+  copy:
+    src: "terminator_config"
+    dest: "~/.config/terminator/config"
+
+- name: Delete Temporary Directory
+  file:
+    path: "{{ temp_dir.path }}"
+    state: absent
+  become: no
+
+- name: Install Powerlevel10k
+  command: "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k"
+  command: "echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc"

@@ -4,4 +4,4 @@
   connection: local
   roles:
     - install_tools
-
+    - setup_terminal
