@@ -29,7 +29,7 @@
 
 - name: Copy .zshrc file, overwrite if needed
   copy:
-    src: "zshrc"
+    src: ".zshrc"
     dest: "~/.zshrc"
     force: yes
 
