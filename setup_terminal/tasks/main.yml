@@ -31,8 +31,9 @@
   file:
     path: "{{ temp_dir.path }}"
     state: absent
-  become: no
 
-- name: Install Powerlevel10k
+- name: Clone Powerlevel10k repository
   command: "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k"
-  command: "echo 'source ~/.powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc"
+
+- name: Edit .zshrc
+  command: "echo 'source ~/powerlevel10k/powerlevel10k.zsh-theme' >>~/.zshrc"
