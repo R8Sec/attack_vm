@@ -3,7 +3,7 @@
   tempfile:
     state: directory
     prefix: font_download
-    dir: /tmp
+    path: /tmp
   register: temp_dir
 
 - name: Download font zip file
