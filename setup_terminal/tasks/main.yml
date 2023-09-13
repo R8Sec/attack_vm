@@ -38,8 +38,14 @@
     path: "{{ temp_dir.path }}"
     state: absent
 
+- name: Check if Powerlevel10k repository exists
+  stat:
+    path: "~/.powerlevel10k"
+  register: powerlevel10k_repo
+  
 - name: Clone Powerlevel10k repository
   command: "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k"
+  when: powerlevel10k_repo.stat.exists == False
 
 - name: Edit .zshrc file
   lineinfile:
