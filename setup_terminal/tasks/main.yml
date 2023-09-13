@@ -12,31 +12,31 @@
 
 - name: Ensure ~/.local/share/fonts Directory Exists
   file:
-    path: "~/.local/share/fonts"
+    path: "{{ ansible_user_dir }}/.local/share/fonts/Meslo"
     state: directory
     mode: 0755
 
 - name: Unzip font files to ~/.local/share/fonts
   unarchive:
     src: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
-    dest: "~/.local/share/fonts"
+    dest: "{{ ansible_user_dir }}/.local/share/fonts"
     
 - name: Ensure ~/.config/terminator Directory Exists
   file:
-    path: "~/.config/terminator"
+    path: "{{ ansible_user_dir }}/.config/terminator"
     state: directory
     mode: 0755
 
 - name: Copy Terminator config file, overwrite if needed
   copy:
     src: "terminator_config"
-    dest: "~/.config/terminator/config"
+    dest: "{{ ansible_user_dir }}/.config/terminator/config"
     force: yes
 
 - name: Copy .zshrc file, overwrite if needed
   copy:
     src: ".zshrc"
-    dest: "~/.zshrc"
+    dest: "{{ ansible_user_dir }}/.zshrc"
     force: yes
 
 - name: Delete Temporary Directory
@@ -46,16 +46,16 @@
 
 - name: Check if Powerlevel10k repository exists
   stat:
-    path: "~/.powerlevel10k"
+    path: "{{ ansible_user_dir }}/.powerlevel10k"
   register: powerlevel10k_repo
   
 - name: Clone Powerlevel10k repository
-  command: "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ~/.powerlevel10k"
+  command: "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git {{ ansible_user_dir }}/.powerlevel10k"
   when: powerlevel10k_repo.stat.exists == False
 
 - name: Edit .zshrc file
   lineinfile:
-    path: "~/.zshrc"
-    line: "source ~/.powerlevel10k/powerlevel10k.zsh-theme"
+    path: "{{ ansible_user_dir }}/.zshrc"
+    line: "source {{ ansible_user_dir }}/.powerlevel10k/powerlevel10k.zsh-theme"
     insertafter: EOF
     state: present
