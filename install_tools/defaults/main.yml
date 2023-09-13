@@ -2,6 +2,7 @@
 packages_to_install:
   - zsh
   - terminator
+  - firefox-esr
   - tmux
   - jq
   - flameshot
