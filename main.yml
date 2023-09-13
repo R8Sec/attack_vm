@@ -5,3 +5,4 @@
   roles:
     - install_tools
     - setup_terminal
+    - customize_browser

@@ -10,13 +10,13 @@
     dest: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
     mode: 0755 
 
-- name: Ensure ~/.local/share/fonts Directory Exists
+- name: Create ~/.local/share/fonts/Meslo
   file:
     path: "{{ ansible_user_dir }}/.local/share/fonts/Meslo"
     state: directory
     mode: 0755
 
-- name: Unzip font files to ~/.local/share/fonts
+- name: Unzip font files to ~/.local/share/fonts/Meslo
   unarchive:
     src: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
     dest: "{{ ansible_user_dir }}/.local/share/fonts/Meslo"
@@ -27,13 +27,13 @@
     state: directory
     mode: 0755
 
-- name: Copy Terminator config file, overwrite if needed
+- name: Copy Terminator config file
   copy:
     src: "terminator_config"
     dest: "{{ ansible_user_dir }}/.config/terminator/config"
     force: yes
 
-- name: Copy .zshrc file, overwrite if needed
+- name: Copy .zshrc file
   copy:
     src: ".zshrc"
     dest: "{{ ansible_user_dir }}/.zshrc"
