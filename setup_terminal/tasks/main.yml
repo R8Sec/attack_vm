@@ -19,7 +19,7 @@
 - name: Unzip font files to ~/.local/share/fonts
   unarchive:
     src: "{{ temp_dir.path }}/{{ font_zip_url | basename }}"
-    dest: "{{ ansible_user_dir }}/.local/share/fonts"
+    dest: "{{ ansible_user_dir }}/.local/share/fonts/Meslo"
     
 - name: Ensure ~/.config/terminator Directory Exists
   file:
