@@ -45,7 +45,7 @@
 - name: Check if Tmux Plugin Manager repo exists
   stat:
     path: "{{ ansible_user_dir}}/.tmux/plugins/tpm"
-  registers: tpm_installed
+  register: tpm_installed
 
 - name: Clone Tmux Plugin Manager repo
   command: git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
