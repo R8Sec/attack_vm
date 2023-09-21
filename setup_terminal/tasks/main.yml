@@ -1,7 +1,7 @@
 ---
 - name: Check if Meslo font is already installed
   stat:
-    path: "{{}}/.local/share/Meslo"
+    path: "{{ ansible_user_dir }}/.local/share/Meslo"
   register: font_installed
 
 - name: Create Temporary Directory
