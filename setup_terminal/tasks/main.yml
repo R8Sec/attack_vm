@@ -40,7 +40,7 @@
   copy:
     src: "terminator_config"
     dest: "{{ ansible_user_dir }}/.config/terminator/config"
-    force: no
+    force: yes
 
 - name: Check if Tmux Plugin Manager repo exists
   stat:
@@ -55,13 +55,13 @@
   copy:
     src: ".tmux.conf"
     dest: "{{ ansible_user_dir }}/.tmux.conf"
-    force: no
+    force: yes
 
 - name: Copy .zshrc
   copy:
     src: ".zshrc"
     dest: "{{ ansible_user_dir }}/.zshrc"
-    force: no
+    force: yes
 
 - name: Delete Temporary Directory
   file:
