@@ -6,3 +6,4 @@ packages_to_install:
   - tmux
   - jq
   - flameshot
+  - pandoc
