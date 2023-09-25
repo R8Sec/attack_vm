@@ -1,6 +1,7 @@
 ---
 packages_to_install:
   - zsh
+  - snapd
   - terminator
   - firefox-esr
   - tmux
