@@ -19,9 +19,9 @@
     state: started
   become: true
 
-- name: enable snapd apparmor
+- name: enable snapd.apparmor service
   service:
-    name: apparmor
+    name: snapd.apparmor
     enabled: true
     state: started
   become: true
