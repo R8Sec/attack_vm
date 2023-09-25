@@ -3,6 +3,6 @@
   hosts: localhost
   connection: local
   roles:
-    - install_tools
-    - setup_terminal
-    - customize_browser
+    - roles/install_tools
+    - roles/setup_terminal
+    - roles/customize_browser
