@@ -1,16 +1,16 @@
 ---
 - name: Update and upgrade packages
-  become: true
   apt:
     update_cache: true
     upgrade: true
+  become: true
 
 - name: Install packages
-  become: true
   apt:
     name: "{{ item }}"
     state: present
   with_items: "{{ packages_to_install }}"
+  become: true
 
 - name: enable snapd service
   service:
@@ -20,9 +20,8 @@
   become: true
 
 - name: Install Obsidian
-  become: true
   snap:
     name: obsidian
     classic: true
-    dangerous: true
     channel: latest/stable
+  become: true
