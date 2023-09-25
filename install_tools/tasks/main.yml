@@ -19,6 +19,13 @@
     state: started
   become: true
 
+- name: enable snapd apparmor
+  service:
+    name: apparmor
+    enabled: true
+    state: started
+  become: true
+
 - name: Install Obsidian
   snap:
     name: obsidian
