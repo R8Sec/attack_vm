@@ -11,3 +11,4 @@ packages_to_install:
   - feh
   - neo4j
   - bloodhound
+  - bloodhound.py
