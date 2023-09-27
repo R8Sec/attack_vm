@@ -16,6 +16,9 @@ endif
 " Display line numbers on the left
 set number
 
+" Display line endings
+set list
+
 " When opening a new line and no filetype-specific indenting is enabled, keep
 " the same indent as the line you're currently on. Useful for READMEs, etc.
 set autoindent

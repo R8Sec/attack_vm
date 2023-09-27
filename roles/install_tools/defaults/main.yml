@@ -9,3 +9,4 @@ packages_to_install:
   - flameshot
   - pandoc
   - feh
+  - neo4j
