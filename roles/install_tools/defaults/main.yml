@@ -8,3 +8,4 @@ packages_to_install:
   - jq
   - flameshot
   - pandoc
+  - feh
