@@ -10,3 +10,4 @@ packages_to_install:
   - pandoc
   - feh
   - neo4j
+  - bloodhound
