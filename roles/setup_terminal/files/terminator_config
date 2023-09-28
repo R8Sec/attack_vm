@@ -4,6 +4,8 @@
 [keybindings]
 [profiles]
   [[default]]
+    background_darkness = 0.9
+    background_type = transparent
     use_system_font = False
     font = MesloLGS Nerd Font 10
     scrollbar_position = hidden
