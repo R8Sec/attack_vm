@@ -63,6 +63,12 @@
     dest: "{{ ansible_user_dir }}/.zshrc"
     force: yes
 
+- name: Copy .vimrc
+  copy:
+    src: ".vimrc"
+    dest: "{{ ansible_user_dir }}/.vimrc"
+    force: yes
+
 - name: Delete Temporary Directory
   file:
     path: "{{ temp_dir.path }}"
