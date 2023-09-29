@@ -13,3 +13,4 @@ packages_to_install:
   - bloodhound
   - bloodhound.py
   - seclists
+  - eyewitness
