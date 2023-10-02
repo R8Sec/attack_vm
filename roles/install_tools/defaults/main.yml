@@ -12,3 +12,4 @@ packages_to_install:
   - neo4j
   - bloodhound
   - bloodhound.py
+  - smtp-user-enum
