@@ -12,4 +12,10 @@ packages_to_install:
   - neo4j
   - bloodhound
   - bloodhound.py
+<<<<<<< HEAD
   - smtp-user-enum
+=======
+  - seclists
+  - eyewitness
+  - cupp
+>>>>>>> ba4bfdaf47dd3d17436b37ef52ede9ae7eb57873
