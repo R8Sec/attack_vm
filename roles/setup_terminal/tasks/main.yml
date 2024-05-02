@@ -84,7 +84,7 @@
   command: "git clone --depth=1 https://github.com/romkatv/powerlevel10k.git {{ ansible_user_dir }}/.powerlevel10k"
   when: powerlevel10k_repo.stat.exists == False
 
-- name: Edit .zshrc file
+- name: Edit .zshrc file to source Powerlevel10k theme
   lineinfile:
     path: "{{ ansible_user_dir }}/.zshrc"
     line: "source {{ ansible_user_dir }}/.powerlevel10k/powerlevel10k.zsh-theme"
