@@ -32,3 +32,9 @@
     classic: true
     channel: latest/stable
   become: true
+
+- name: Install Python libraries
+  pip:
+    name: "{{ item }}"
+  with_items: "{{ python_packages }}"
+  become: true
