@@ -18,3 +18,6 @@ packages_to_install:
   - cupp
   - smtp-user-enum
   - xxd
+
+python_packages:
+  - pwntools
