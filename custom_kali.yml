@@ -1,6 +1,7 @@
 ---
 - name: "Custom Kali"
   hosts: localhost
+  ansible_user: "{{ ansible_env.USER }}"
   connection: local
   roles:
     - roles/install_tools
