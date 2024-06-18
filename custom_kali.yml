@@ -4,5 +4,6 @@
   connection: local
   roles:
     - roles/install_tools
-    - roles/setup_terminal
+    - roles/terminal_emulator
+    - roles/terminal
     - roles/customize_browser
