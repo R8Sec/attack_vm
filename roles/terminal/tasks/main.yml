@@ -32,10 +32,3 @@
     src: ".tmux.conf"
     dest: "{{ ansible_user_dir }}/.tmux.conf"
     force: yes
-
-- name: Change default shell to zsh
-  become: True
-  user:
-    name: "{{ ansible_user }}"
-    shell: /bin/zsh
-  when: ansible_user != 'root'
